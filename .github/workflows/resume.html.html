@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mukesh Kumar — Digital Marketing Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #0D1B2A;
+    --teal: #1B6CA8;
+    --teal-light: #2E8BC0;
+    --accent: #E8C547;
+    --sidebar-bg: #0D1B2A;
+    --white: #FFFFFF;
+    --light: #F4F7FB;
+    --muted: #6B7C93;
+    --body-text: #2D3748;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #e8edf2;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 30px 20px;
+  }
+
+  .page {
+    width: 860px;
+    display: grid;
+    grid-template-columns: 270px 1fr;
+    background: white;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+    border-radius: 2px;
+    overflow: hidden;
+    min-height: 1100px;
+  }
+
+  /* ── LEFT SIDEBAR ── */
+  .sidebar {
+    background: var(--navy);
+    color: white;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .sidebar-top {
+    background: var(--teal);
+    padding: 40px 28px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sidebar-top::before {
+    content: '';
+    position: absolute;
+    bottom: -40px; right: -40px;
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.07);
+  }
+  .sidebar-top::after {
+    content: '';
+    position: absolute;
+    top: -20px; left: -20px;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+
+  .avatar {
+    width: 86px; height: 86px;
+    border-radius: 50%;
+    background: var(--navy);
+    border: 3px solid rgba(255,255,255,0.25);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: var(--accent);
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    line-height: 1.2;
+    color: white;
+    margin-bottom: 6px;
+    position: relative; z-index: 1;
+  }
+
+  .role-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: var(--navy);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 2px;
+    position: relative; z-index: 1;
+  }
+
+  .sidebar-body {
+    padding: 28px 24px;
+    flex: 1;
+  }
+
+  .s-section {
+    margin-bottom: 26px;
+  }
+
+  .s-label {
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.4;
+  }
+
+  .contact-icon {
+    color: var(--teal-light);
+    font-size: 13px;
+    margin-top: 1px;
+    flex-shrink: 0;
+  }
+
+  .skill-bar {
+    margin-bottom: 11px;
+  }
+
+  .skill-name {
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .skill-track {
+    height: 4px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .skill-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--teal-light), var(--accent));
+    border-radius: 2px;
+  }
+
+  .cert-item {
+    margin-bottom: 12px;
+    padding-left: 12px;
+    border-left: 2px solid var(--teal-light);
+  }
+
+  .cert-name {
+    font-size: 11.5px;
+    color: white;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .cert-issuer {
+    font-size: 10.5px;
+    color: rgba(255,255,255,0.5);
+    margin-top: 2px;
+  }
+
+  .cert-year {
+    font-size: 10px;
+    color: var(--accent);
+    margin-top: 2px;
+  }
+
+  .lang-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .lang-dots {
+    display: flex; gap: 4px;
+  }
+
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+  }
+  .dot.filled { background: var(--teal-light); }
+
+  /* ── RIGHT MAIN ── */
+  .main {
+    padding: 40px 36px;
+    background: var(--light);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .main-top {
+    background: white;
+    border-radius: 8px;
+    padding: 22px 24px;
+    margin-bottom: 22px;
+    border-left: 4px solid var(--teal);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  }
+
+  .main-top p {
+    font-size: 12.5px;
+    color: var(--body-text);
+    line-height: 1.75;
+  }
+
+  .m-section {
+    margin-bottom: 22px;
+  }
+
+  .m-label {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .m-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--teal);
+    opacity: 0.25;
+  }
+
+  .job-block {
+    background: white;
+    border-radius: 6px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border-top: 3px solid transparent;
+    border-image: linear-gradient(90deg, var(--teal), var(--accent)) 1;
+    position: relative;
+  }
+
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .job-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 14.5px;
+    color: var(--navy);
+  }
+
+  .job-date {
+    font-size: 10.5px;
+    color: var(--muted);
+    background: var(--light);
+    padding: 2px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .job-company {
+    font-size: 11.5px;
+    color: var(--teal);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  .job-bullets {
+    list-style: none;
+    padding: 0;
+  }
+
+  .job-bullets li {
+    font-size: 11.5px;
+    color: var(--body-text);
+    line-height: 1.6;
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 3px;
+  }
+
+  .job-bullets li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-size: 14px;
+    line-height: 1.3;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .proj-card {
+    background: white;
+    border-radius: 6px;
+    padding: 14px 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    border-bottom: 3px solid var(--teal);
+  }
+
+  .proj-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--navy);
+    margin-bottom: 5px;
+  }
+
+  .proj-tag {
+    font-size: 9.5px;
+    background: rgba(27,108,168,0.1);
+    color: var(--teal);
+    padding: 2px 7px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-bottom: 7px;
+    font-weight: 500;
+  }
+
+  .proj-desc {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  .proj-link {
+    font-size: 10px;
+    color: var(--teal);
+    margin-top: 5px;
+    display: block;
+  }
+
+  .edu-row {
+    background: white;
+    border-radius: 6px;
+    padding: 13px 16px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .edu-deg {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--navy);
+  }
+
+  .edu-school {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .edu-year {
+    font-size: 11px;
+    color: var(--teal);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="avatar">MK</div>
+      <div class="name">Mukesh<br>Kumar</div>
+      <div class="role-tag">Digital Marketing</div>
+    </div>
+
+    <div class="sidebar-body">
+
+      <div class="s-section">
+        <div class="s-label">Contact</div>
+        <div class="contact-item">
+          <span class="contact-icon">✉</span>
+          <span>monukalia21@gmail.com</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📞</span>
+          <span>+971 528 661 420</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">🔗</span>
+          <span>linkedin.com/in/<br>mukesh-digital-marketer</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-icon">📍</span>
+          <span>Dubai, UAE</span>
+        </div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-label">Core Skills</div>
+
+        <div class="skill-bar">
+          <div class="skill-name"><span>SEO & Search Console</span></div>
+          <div class="skill-track"><div class="skill-fill" style="width:85%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-name"><span>Google Ads</span></div>
+          <div class="skill-track"><div class="skill-fill" style="width:78%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-name"><span>Meta Ads</span></div>
+          <div class="skill-track"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-name"><span>Google Analytics 4</span></div>
+          <div class="skill-track"><div class="skill-fill" style="width:75%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-name"><span>WordPress & CMS</span></div>
+          <div class="skill-track"><div class="skill-fill" style="width:80%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-name"><span>Canva & Content Design</span></div>
+          <div class="skill-track"><div class="skill-fill" style="width:88%"></div></div>
+        </div>
+        <div class="skill-bar">
+          <div class="skill-name"><span>HTML / CSS</span></div>
+          <div class="skill-track"><div class="skill-fill" style="width:70%"></div></div>
+        </div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-label">Certifications</div>
+
+        <div class="cert-item">
+          <div class="cert-name">Advanced Digital Marketing with AI</div>
+          <div class="cert-issuer">ACAMIND Centre — KHDA Certified</div>
+          <div class="cert-year">2026</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-name">Digital Marketing Certification</div>
+          <div class="cert-issuer">HubSpot Academy</div>
+          <div class="cert-year">2026</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-name">Google Ads for Beginners</div>
+          <div class="cert-issuer">Coursera</div>
+          <div class="cert-year">Dec 2025</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-name">SEO with Squarespace</div>
+          <div class="cert-issuer">Coursera</div>
+          <div class="cert-year">Oct 2025</div>
+        </div>
+        <div class="cert-item">
+          <div class="cert-name">HTML, CSS & JavaScript</div>
+          <div class="cert-issuer">Johns Hopkins — Coursera</div>
+          <div class="cert-year">May 2022</div>
+        </div>
+      </div>
+
+      <div class="s-section">
+        <div class="s-label">Languages</div>
+        <div class="lang-row">
+          <span>English</span>
+          <div class="lang-dots">
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot"></div>
+          </div>
+        </div>
+        <div class="lang-row">
+          <span>Hindi</span>
+          <div class="lang-dots">
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+          </div>
+        </div>
+        <div class="lang-row">
+          <span>Punjabi</span>
+          <div class="lang-dots">
+            <div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div><div class="dot filled"></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+
+    <div class="main-top">
+      <p>Results-driven Digital Marketing professional based in Dubai, certified in Google Ads, Meta Ads, and SEO (KHDA approved). Hands-on experience building and optimising campaigns across search and social platforms — from keyword research and on-page SEO to full Meta Ads campaign setup and performance analysis. Eager to contribute to a Dubai agency or brand team as a junior SEO, Paid Ads, or Social Media specialist.</p>
+    </div>
+
+    <!-- EXPERIENCE -->
+    <div class="m-section">
+      <div class="m-label">Experience</div>
+
+      <div class="job-block">
+        <div class="job-header">
+          <div class="job-title">Digital Marketing Trainee</div>
+          <div class="job-date">Jan 2026 – Present</div>
+        </div>
+        <div class="job-company">Self-Initiated Practice & Portfolio Building</div>
+        <ul class="job-bullets">
+          <li>Executed end-to-end campaigns across SEO, Google Ads, and Meta Ads — from strategy to performance reporting</li>
+          <li>Conducted intent-based keyword research to identify high-value targets for both organic and paid campaigns</li>
+          <li>Monitored traffic and user behaviour with Google Analytics 4 and Search Console; identified and acted on insights</li>
+          <li>Designed marketing creatives (banners, social posts, short-form videos) using Canva</li>
+        </ul>
+      </div>
+
+      <div class="job-block">
+        <div class="job-header">
+          <div class="job-title">Security Officer</div>
+          <div class="job-date">Mar 2025 – Present</div>
+        </div>
+        <div class="job-company">Emrill Services LLC — Dubai, UAE</div>
+        <ul class="job-bullets">
+          <li>Managed operations for high-footfall facilities — demonstrates reliability, attention to detail, and professional communication</li>
+          <li>Maintained detailed incident documentation and shift logs; strong written reporting and organisational discipline</li>
+        </ul>
+      </div>
+
+      <div class="job-block">
+        <div class="job-header">
+          <div class="job-title">Security Officer</div>
+          <div class="job-date">Aug 2022 – Jul 2024</div>
+        </div>
+        <div class="job-company">Star Security Services — Dubai, UAE</div>
+        <ul class="job-bullets">
+          <li>Managed access control, credential verification, and emergency protocols across multiple Dubai sites</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="m-section">
+      <div class="m-label">Projects</div>
+      <div class="project-grid">
+
+        <div class="proj-card">
+          <div class="proj-title">MK Digital Marketing Website</div>
+          <div class="proj-tag">SEO + Web Development</div>
+          <div class="proj-desc">Built a full digital marketing services site in VS Code with HTML/CSS, hosted on GitHub Pages with on-page SEO best practices.</div>
+          <a class="proj-link" href="https://monukalia.github.io/MK-digital-marketer/" ">monukalia.github.io/MK-digital-marketer/</a>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-title">Facebook Shoe Sales Campaign</div>
+          <div class="proj-tag">Meta Ads</div>
+          <div class="proj-desc">End-to-end Meta Ads campaign: audience segmentation, creative design, budget allocation, A/B testing, and performance analysis.</div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-title">WordPress Website</div>
+          <div class="proj-tag">CMS + SEO</div>
+          <div class="proj-desc">Built a fully responsive, SEO-optimised WordPress site with clean structure, fast load, and user-friendly navigation.</div>
+          <a class="proj-link" href="https://live-mk2504.pantheonsite.io/" target="_blank" rel="noopener noreferrer">https://live-mk2504.pantheonsite.io/</a>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-title">Google Ads Search Campaign</div>
+          <div class="proj-tag">PPC</div>
+          <div class="proj-desc">Structured a complete Google Search campaign: keyword match types, ad group organisation, ad copy, and quality score strategy.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="m-section">
+      <div class="m-label">Education</div>
+      <div class="edu-row">
+        <div>
+          <div class="edu-deg">Bachelor of Computer Applications (BCA)</div>
+          <div class="edu-school">Manipal University — Dubai, UAE</div>
+        </div>
+        <div class="edu-year">2026 – Present</div>
+      </div>
+      <div class="edu-row">
+        <div>
+          <div class="edu-deg">Class 12 — Commerce Stream</div>
+          <div class="edu-school">Rajput Senior Secondary School, Himachal Pradesh, India</div>
+        </div>
+        <div class="edu-year">2016</div>
+      </div>
+    </div>
+
+  </main>
+</div>
+</body>
+</html>
